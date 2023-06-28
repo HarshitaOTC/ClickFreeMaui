@@ -31,12 +31,8 @@ jobs:
       run: certutil -user -q -p ${{ secrets.WINDOWS_PFX_PASSWORD }} -importpfx cert.pfx NoRoot
     - name: Build
       run: dotnet publish ClickFreeMaui.csproj -c Release -f:net6.0-windows10.0.19041.0 /p:GenerateppxPackageOnBuild-true /p:AppxPackagesigningEnabled-true /p:PackageCertificateThumbprint="{{secrets.WINDOWS_PFX_THUMBPRINT}}"
-    #- name: Upload Build Artifacts 
-     # uses: actions/upload-artifact@v3.1.0
-     # with:
-      #  path: .\**\ApoPackages\**\*.*
-    - name: Upload Windows Artifact
+    - name: Upload Build Artifacts 
       uses: actions/upload-artifact@v3.1.0
       with:
-          name: windows-ci-build
-          path: ClickFreeMaui/ClickFreeMaui.msix
+       path: .\**\ApoPackages\**\*.*
+   
