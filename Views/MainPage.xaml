@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClickFreeMaui.MainPage" Loaded="ContentPage_Loaded" NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False" BackgroundColor="#2a2c30">
+
+    <VerticalStackLayout>
+        <Grid>
+            <Grid VerticalOptions="Start" Margin="0" HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="92" />
+                    <ColumnDefinition Width="76"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="55"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+
+                </Grid.RowDefinitions>
+                <Button x:Name="MainBtn" FontAttributes="Bold" FontSize="Micro" BorderWidth="0" Text="Main" TextColor="White" BackgroundColor="Transparent" Grid.Column="0" Margin="2,0,0,0" VerticalOptions="Center" WidthRequest="100" Clicked="MainBtn_Clicked"></Button>
+                <Button x:Name="SettingBtn" FontAttributes="Bold" FontSize="Micro"  BorderWidth="0" Text="Settings" TextColor="White" BackgroundColor="Transparent" Grid.Column="1" Margin="0,0,0,0" VerticalOptions="Center" WidthRequest="100" Clicked="SettingsBtn"></Button>
+                <Button x:Name="AboutBtn" FontAttributes="Bold" FontSize="Micro" BorderWidth="0" Text="About" TextColor="White" BackgroundColor="Transparent" Grid.Column="2" Margin="0,0,0,0" VerticalOptions="Center" WidthRequest="100" Clicked="AboutBtnClick"></Button>
+                <!--<Button x:Name="EmailBtn" Margin="0,0,0,0" FontAttributes="Bold" HeightRequest="38"  FontSize="14"   BorderWidth="0"  Text="Email Support" TextColor="White" BackgroundColor="Transparent" Grid.Column="4" VerticalOptions="Center" WidthRequest="170"></Button>--><!--
+                <Button x:Name="ChatBtn" Margin="20,0,0,0" Text="ChatSupport"  FontSize="Micro"  HeightRequest="37" BorderWidth="0"  TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center"  Grid.Column="5"  WidthRequest="170"></Button>-->
+                <Button x:Name="usbButton"  CornerRadius="80"  WidthRequest="40" HeightRequest="35" BackgroundColor="Green" ContentLayout="left,0" FontSize="Micro"   BorderWidth="0" Grid.Column="7" ImageSource="usb.png"  TextColor="White"  Margin="0,0,20,0" HorizontalOptions="Center" >
+
+                </Button>
+
+            </Grid>
+            <Button Margin="0,250,0,0" WidthRequest="80" BackgroundColor="#3FA8E3" VerticalOptions="Center" Text="Start" Command="{Binding CurrentStatus}"></Button>
+
+            <Label x:Name="promtUserAboutDevice" VerticalOptions="Center"   Text="{Binding Status}"  TextColor="White" HorizontalOptions="Center" FontSize="25" Margin="0,350,0,0">
+
+            </Label>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

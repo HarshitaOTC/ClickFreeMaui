@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClickFreeMaui.Views.MainView"
+             Title="ClickFreeMaui" NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False" BackgroundColor="#2a2c30">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid VerticalOptions="Start" Margin="0" HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="92" />
+                    <ColumnDefinition Width="76"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="55"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+
+                </Grid.RowDefinitions>
+                <Button x:Name="MainBtn" FontAttributes="Bold" FontSize="Micro" BorderWidth="0" Text="Main" TextColor="White" BackgroundColor="Transparent" Grid.Column="0" Margin="2,0,0,0" VerticalOptions="Center" WidthRequest="100" Clicked="MainBtn_Clicked"></Button>
+                <Button x:Name="SettingBtn" FontAttributes="Bold" FontSize="Micro"  BorderWidth="0" Text="Settings" TextColor="White" BackgroundColor="Transparent" Grid.Column="1" Margin="0,0,0,0" VerticalOptions="Center" WidthRequest="100" Clicked="SettingsBtn"></Button>
+                <Button x:Name="AboutBtn" FontAttributes="Bold" FontSize="Micro" BorderWidth="0" Text="About" TextColor="White" BackgroundColor="Transparent" Grid.Column="2" Margin="0,0,0,0" VerticalOptions="Center" WidthRequest="100" Clicked="AboutBtnClick"></Button>
+                <Button x:Name="EmailBtn" FontAttributes="Bold" ImageSource="emailicon.png" HeightRequest="38"  FontSize="14"   BorderWidth="0"  Text="Email Support" TextColor="White" BackgroundColor="Transparent" Grid.Column="4" VerticalOptions="Center" WidthRequest="170"></Button>
+                <Button x:Name="ChatBtn"  FontSize="Micro" ImageSource="chatsupport.png" HeightRequest="37" BorderWidth="0"  TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="0,0,15,0" Grid.Column="5"  WidthRequest="170"></Button>
+                <Button x:Name="usbButton"  CornerRadius="80"  WidthRequest="40" HeightRequest="35" BackgroundColor="Green" ContentLayout="left,0" FontSize="Micro"   BorderWidth="0" Grid.Column="7" ImageSource="usb.png"  TextColor="White"  Margin="0,0,20,0" HorizontalOptions="Center" >
+
+                </Button>
+
+            </Grid>
+            <Label x:Name="promtUserAboutDevice" IsVisible="false" VerticalOptions="Center"  Text="Please plugin ClickFree or DataLogixx device."  TextColor="White" HorizontalOptions="Center" FontSize="25" Margin="0,250,0,0">
+
+            </Label>
+            <!--<StackLayout Orientation="Vertical" x:Name="MainPanel" IsVisible="true">
+                <Grid>
+                    <Label VerticalOptions="Start" TextColor="#3FA8E3"  Text="Click"  HorizontalOptions="Center" FontSize="34" Margin="0,65,75,25"/>
+                    <Label VerticalOptions="Start" TextColor="White" Text="Free"  HorizontalOptions="Center" FontSize="34"   Margin="75,65,0,25"/>
+                </Grid>
+
+                <Grid HeightRequest="250" Margin="0,20,0,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Text="Transfer your photos and videos to PC" Margin="0,0,0,0" TextColor="White" Grid.Row="0" FontSize="Micro" CornerRadius="20" BackgroundColor="#3FA8E3" HeightRequest="50" x:Name="Transfer_btn" WidthRequest="380"  Command="{Binding TransferToPC}"/>
+                    <Button Text="Backup photos and Videos to Clickfree USB" Grid.Row="1" Margin="0,12,0,0" Command="{Binding BackupToUSBCommand}" TextColor="White"  FontSize="Micro" CornerRadius="20" BackgroundColor="#3FA8E3"  HeightRequest="50" WidthRequest="380"/>
+                    <Button Text="View ClickFree" Command="{Binding ViewClickFreeCommand}" Margin="0,26,0,0"  TextColor="White" FontSize="Micro"  CornerRadius="20" Grid.Row="2" BackgroundColor="#3FA8E3"  HeightRequest="50" WidthRequest="380"/>
+                    <Button Text="Backup from Facebook" WidthRequest="380" Command="{Binding Path=BackupFromFacebookCommand}" Grid.Row="3" Margin="0,38,0,0" ContentLayout="Right,-500"  ImageSource="iconfacebook.png" TextColor="White" FontSize="Micro" CornerRadius="20" BackgroundColor="#3FA8E3" HeightRequest="50"  IsEnabled="True"/>
+                    <Button Text="Backup from Instagram" WidthRequest="380" Grid.Row="4" Margin="0,50,0,0" ContentLayout="Right,-500" ImageSource="iconinstagram.png" TextColor="White" FontSize="Micro" CornerRadius="20" BackgroundColor="#3FA8E3" HeightRequest="50" Command="{Binding BackupFromInstagramCommand}" IsEnabled="True" />
+                </Grid>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center"  x:Name="SettingsPanel" IsVisible="false">
+                <Label VerticalOptions="Center" HorizontalOptions="Center" FontSize="34" Margin="0,65,0,15">
+
+                </Label>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" Margin="0,0,5,0">
+                        <Button Text="FAQ" CornerRadius="20" TextColor="White" FontSize="Micro" BackgroundColor="#3FA8E3" WidthRequest="200" Command="{Binding FAQCommand}" HorizontalOptions="Start"
+                           />
+                        <Button Text="Get Help" CornerRadius="20" Margin="0,5,0,0" TextColor="White" FontSize="Micro" BackgroundColor="#3FA8E3" WidthRequest="200" Command="{Binding GetHelpCommand}" HorizontalOptions="Start"
+                            />
+                        <Button Text="Erase Device" CornerRadius="20" Margin="0,5,0,0" TextColor="White" FontSize="Micro" Command="{Binding TransferSelectedFilesCommand}" BackgroundColor="#3FA8E3" WidthRequest="200" HorizontalOptions="Start" />
+                        --><!--<Button Text="Language" BackgroundColor="#3FA8E3" WidthRequest="200" HorizontalOptions="Start" IsEnabled="False"/>--><!--
+                        <Button Text="Contact Us" CornerRadius="20" Margin="0,5,0,0" TextColor="White" FontSize="Micro" BackgroundColor="#3FA8E3" WidthRequest="200" Command="{Binding ContactUSCommand}" HorizontalOptions="Start"
+                            />
+                        --><!--<Button Text="About Us" BackgroundColor="#3FA8E3" WidthRequest="200" HorizontalOptions="Start" IsEnabled="False"/>--><!--
+
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Margin="10,0,0,0">
+                        --><!--<Button Text="Notifications" BackgroundColor="#3FA8E3" WidthRequest="220" HorizontalOptions="End" IsEnabled="False"/>
+                        <Button Text="Upgrade to Premium (TBD)" BackgroundColor="#3FA8E3" WidthRequest="220" HorizontalOptions="End" IsEnabled="False"/>--><!--
+                        <Button Text="Change Default Folders"  CornerRadius="20" TextColor="White" FontSize="Micro" BackgroundColor="#3FA8E3" WidthRequest="220" Command="{Binding DefaultFoldersCommand}"  HorizontalOptions="End" />
+                        <Button Text="How-to Videos" Margin="0,5,0,0" CornerRadius="20" BackgroundColor="#3FA8E3" TextColor="White" FontSize="Micro" WidthRequest="220" Command="{Binding HowtovideoCommand}" HorizontalOptions="End"  />
+                        --><!--<Button Text="Leave a Review" BackgroundColor="#3FA8E3" WidthRequest="220" HorizontalOptions="End" IsEnabled="False"/>--><!--
+                        <Button Text="Format ClickFree USB" CornerRadius="20" Margin="0,5,0,0" BackgroundColor="#3FA8E3" TextColor="White" FontSize="Micro" WidthRequest="220" Command="{Binding FormatClickFreeCommand}" HorizontalOptions="End"  
+                             />
+                        --><!-- Click="FormatClickFreeUSBBtn_Click" --><!--
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Margin="20" x:Name="AboutPanel" IsVisible="false">
+                <Grid>
+                    <Label VerticalOptions="Start" TextColor="#3FA8E3"  Text="Click"  HorizontalOptions="Center" FontSize="34" Margin="0,65,75,25"/>
+                    <Label VerticalOptions="Start" TextColor="White" Text="Free"  HorizontalOptions="Center" FontSize="34"   Margin="75,65,0,25"/>
+                </Grid>
+
+                --><!--<Run Text="Click" FontFamily="Josefin Sans" Foreground="#54BAF4" /><Run Text="Free" FontFamily="Jura" Foreground="White"/>--><!--
+
+                <StackLayout Orientation="Horizontal"  >
+                    <StackLayout Orientation="Vertical" VerticalOptions="Center" Margin="0,60,0,0">
+                        <Label x:Name="Firmwarelbl" Text="Firmware version:" 
+                       VerticalOptions="Start" HorizontalOptions="Center" FontFamily="Josefin Sans" TextColor="White" FontSize="14"/>
+                        <Label x:Name="FirmwareVersionlbl" Text="" Margin="0,10,0,0" VerticalOptions="Start" HorizontalOptions="Center" FontFamily="Josefin Sans" TextColor="White" FontSize="14"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Margin="40,60,0,0">
+                        <Label x:Name="Applicationlbl" Text="Application version:" FontSize="14"
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontFamily="Josefin Sans" TextColor="White" />
+                        <Label x:Name="AppVersionlbl"  FontSize="14" Margin="0,10,0,0"
+                       VerticalOptions="Start" HorizontalOptions="Center" FontFamily="Josefin Sans" TextColor="White" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Margin="40,60,0,0">
+                        <Label x:Name="Addresslbl" Text="File System:" FontSize="14" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" FontFamily="Josefin Sans"
+                           TextColor="White" />
+                        <Label x:Name="lblFileSystem" FontSize="14" Margin="0,10,0,0" VerticalOptions="Start" HorizontalOptions="Center" FontFamily="Josefin Sans" TextColor="White" />
+                        --><!--<Label Content="17720 Oak Park Avenue," FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Josefin Sans" Foreground="White" />-->
+                        <!--<Label Content="Tinley Park, IL," FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Josefin Sans" Foreground="White"/>
+                    <Label Content="60477, USA" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Josefin Sans" Foreground="White" />--><!--
+                    </StackLayout>
+                    <StackLayout  Margin="40,60,0,0">
+                        <Label x:Name="Devicelbl" Text="Device Storage:"  FontSize="14"
+                       VerticalOptions="End" HorizontalOptions="Start" FontFamily="Josefin Sans" TextColor="White" />
+                        <Label x:Name="Storagelbl"   FontSize="14" Margin="0,10,0,0"
+                       VerticalOptions="Start" HorizontalOptions="Center" FontFamily="Josefin Sans" TextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout Margin="40,60,5,0">
+                        <Label x:Name="DeviceAvailablelbl" Text="Available Storage:"  FontSize="14" VerticalOptions="End" HorizontalOptions="Start" FontFamily="Josefin Sans" TextColor="White" />
+                        <Label x:Name="StorageAvailablelbl" Margin="0,10,0,0"  FontSize="14" VerticalOptions="Start" HorizontalOptions="Center" FontFamily="Josefin Sans"  TextColor="White"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,180,0,10" HorizontalOptions="Center" VerticalOptions ="End">
+                    <Label x:Name="Yearlbl" TextColor="White"  FontSize="Micro" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>-->
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
