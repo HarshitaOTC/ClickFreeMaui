@@ -25,5 +25,5 @@ jobs:
       run: dotnet workload install maui
       
     - name: Build
-      run: dotnet build ClickFreeMaui/ClickFreeMaui.csproj -c Release -f:net6.0-windows10.0.19041.0 
+      run: dotnet build ClickFreeMaui.csproj -c Release -f:net6.0-windows10.0.19041.0 
   
