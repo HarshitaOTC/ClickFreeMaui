@@ -23,9 +23,7 @@ jobs:
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Install MAUI workload
       run: dotnet workload install maui
-     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Install MAUI workload
-      run: dotnet workload install maui
+ 
 
     - name: Build
       run: dotnet publish ClickFreeMaui.csproj -c Release -f:net6.0-windows10.0.19041.0 /p:GenerateppxPackageOnBuild-true /p:AppxPackagesigningEnabled-true /p:PackageCertificateThumbprint="{{secrets.WINDOWS_PFX_THUMBPRINT}}"
