@@ -8,7 +8,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
- 
+
 jobs:
   build:
 
@@ -17,21 +17,18 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
-      uses: actions/setup-dotnet@v2 
+      uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Install MAUI workload
       run: dotnet workload install maui
-      
     - name: Decrypt PFX File 
       run: 
        echo "${{ secrets.WINDOWS_PFX_FILE }}" › cert.pfx.asc
-       certutil -decode cert.pfx.asc OTC.pfx
-       
+       certutil -decode cert.pfx.asc cert.pfx
     - name: Add Cert to Store
       run: certutil -user -q -p ${{ secrets.WINDOWS_PFX_PASSWORD }} -importpfx cert.pfx NoRoot
-      
     - name: Build
       run: dotnet publish ClickFreeMaui.csproj -c Release -f:net6.0-windows10.0.19041.0 /p:GenerateppxPackageOnBuild-true /p:AppxPackagesigningEnabled-true /p:PackageCertificateThumbprint="{{secrets.WINDOWS_PFX_THUMBPRINT}}"
     - name: Upload Build Artifacts 
