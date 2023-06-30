@@ -26,7 +26,7 @@ jobs:
     - name: Decrypt PFX File 
       run: 
        echo "${{ secrets.WINDOWS_PFX_FILE }}" › cert.pfx.asc
-       certutil -decode cert.pfx.asc OTC11.pfx
+       certutil -decode cert.pfx.asc OTC11.pfx 
     - name: Add Cert to Store
       run: certutil -user -q -p ${{ secrets.WINDOWS_PFX_PASSWORD }} -importpfx OTC11.pfx NoRoot
     - name: Build
